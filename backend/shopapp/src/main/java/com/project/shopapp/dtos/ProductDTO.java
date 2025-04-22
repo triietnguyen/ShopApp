@@ -5,6 +5,8 @@ import jakarta.validation.constraints.*;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Data
 public class ProductDTO {
     @NotBlank(message = "Title is required")
@@ -21,5 +23,5 @@ public class ProductDTO {
     @JsonProperty("category_id")
     private String categoryId;
 
-    private MultipartFile file;
+    private List<MultipartFile> files;
 }
