@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
+@Builder
 public class BaseEntity {
     @Column(name = "created_at")
     private LocalDateTime createAt;

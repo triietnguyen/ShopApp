@@ -1,10 +1,7 @@
 package com.project.shopapp.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -14,6 +11,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +41,6 @@ public class User {
     private int googleAccountId;
 
     @ManyToOne
-    @Column(name = "role_id")
+    @JoinColumn(name = "role_id")
     private com.project.shopapp.models.Role role;
 }

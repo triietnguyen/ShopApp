@@ -29,7 +29,7 @@ public class Product extends BaseEntity{
     private String description;
 
     @ManyToOne
-    @Column(name = "category_id")
-    private Long categoryId;
+    @JoinColumn(name = "category_id")
+    private Category category;
 
 }
