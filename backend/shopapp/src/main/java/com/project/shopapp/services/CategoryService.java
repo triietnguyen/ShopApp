@@ -1,4 +1,4 @@
-package com.project.shopapp.services.category;
+package com.project.shopapp.services;
 
 import com.project.shopapp.dtos.CategoryDTO;
 import com.project.shopapp.models.Category;
@@ -11,19 +11,21 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryService implements ICategoryService{
-
+public class CategoryService implements ICategoryService {
     private final CategoryRepository categoryRepository;
-
     @Override
     public Category createCategory(CategoryDTO categoryDTO) {
-        Category newCategory = Category.builder().name(categoryDTO.getName()).build();
+        Category newCategory = Category
+                .builder()
+                .name(categoryDTO.getName())
+                .build();
         return categoryRepository.save(newCategory);
     }
 
     @Override
     public Category getCategoryById(long id) {
-        return categoryRepository.findById(id).orElseThrow(()-> new RuntimeException("Category not found"));
+        return categoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Category not found"));
     }
 
     @Override
@@ -32,7 +34,8 @@ public class CategoryService implements ICategoryService{
     }
 
     @Override
-    public Category updateCategory(long categoryId, CategoryDTO categoryDTO) {
+    public Category updateCategory(long categoryId,
+                                   CategoryDTO categoryDTO) {
         Category existingCategory = getCategoryById(categoryId);
         existingCategory.setName(categoryDTO.getName());
         categoryRepository.save(existingCategory);
@@ -40,8 +43,8 @@ public class CategoryService implements ICategoryService{
     }
 
     @Override
-    public Category deleteCategory(long id) {
+    public void deleteCategory(long id) {
+        //xóa xong
         categoryRepository.deleteById(id);
-        return null;
     }
 }

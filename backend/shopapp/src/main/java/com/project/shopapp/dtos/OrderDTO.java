@@ -7,10 +7,11 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Data
-@Getter
-@Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class OrderDTO {
 
     @JsonProperty("user_id")
@@ -25,7 +26,7 @@ public class OrderDTO {
     @JsonProperty("phone_number")
     @NotBlank(message = "Phone number is required")
     @Size(min = 5, message = "Phone number must be at least 5 characters")
-    private String phone_number;
+    private String phoneNumber;
 
     private String address;
 
@@ -43,4 +44,6 @@ public class OrderDTO {
 
     @JsonProperty("payment_method")
     private String paymentMethod;
+
+
 }

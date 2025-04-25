@@ -21,4 +21,5 @@ public class ProductImage {
 
     @Column(name = "image_url", length = 300)
     private String imageUrl;
+
 }
